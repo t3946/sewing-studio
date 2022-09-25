@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Box Dust</title>
+        <title>Студия ТМ</title>
       </Head>
 
       <Main />
