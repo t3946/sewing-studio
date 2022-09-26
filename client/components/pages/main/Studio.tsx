@@ -2,8 +2,14 @@ import * as React from "react";
 import Style from "@components/pages/main/Studio.module.scss";
 import cn from "classnames";
 
-export const Studio: React.FC = function () {
-  return <div>
+export interface IProps {
+  className?: any;
+}
+
+export const Studio: React.FC<IProps> = function (props: IProps) {
+  const {className} = props;
+
+  return <div className={className} id={"studio"}>
     {/*определять город по ip. если киров -- выводить блок "Ателье"*/}
     <h2 className={"text-center header-2"}>
       Ателье

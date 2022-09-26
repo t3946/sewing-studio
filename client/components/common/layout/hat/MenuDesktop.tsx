@@ -6,11 +6,11 @@ import cn from "classnames";
 export const MenuDesktop: React.FC = function () {
   const menu = [
     {
-      link: "#boxes",
+      link: "#catalog",
       label: "Магазин",
     },
     {
-      link: "#delivery",
+      link: "#studio",
       label: "Ателье",
     },
     {
