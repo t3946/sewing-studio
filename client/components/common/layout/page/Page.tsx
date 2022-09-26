@@ -4,14 +4,14 @@ import Footer from "@components/common/layout/footer/Footer";
 
 export const Page: React.FC = function (props: any) {
   return (
-    <div id={"main-container"}>
-      <Hat/>
+    <div id={"main-container"} className={"mh-100 d-flex flex-column"}>
+      <div className="flex-grow-1">
+        <Hat/>
 
-      <div className={"container-lg"}>
         {props.children}
-
-        <Footer/>
       </div>
+
+      <Footer/>
     </div>
   );
 };
