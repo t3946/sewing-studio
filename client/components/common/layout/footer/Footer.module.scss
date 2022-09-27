@@ -1,6 +1,29 @@
+@import "styles/utils/Utils.module.scss";
+
 .footer {
-  background: #1b003c;
+  background: #000000;
   color: #ffffff;
   min-height: 100px;
   padding: 20px;
+}
+
+.contactIcon {
+  color: #ffffff;
+  width: pxToRem(20);
+}
+
+.contactLink {
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+
+.socialIcon {
+  color: #ffffff;
+  width: pxToRem(30);
+}
+
+.copyright {
+  color: #4c4c4c;
 }

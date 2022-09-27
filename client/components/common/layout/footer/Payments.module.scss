@@ -1,0 +1,44 @@
+@import "styles/utils/Utils.module.scss";
+
+.payment {
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 5px;
+  display: inline-block;
+  $width: 50px;
+
+  &_mastercard {
+    $ratio: 0.655;
+    background-image: url("/payments/mastercard.png");
+    width: pxToRem($width);
+    height: pxToRem($width * $ratio);
+  }
+
+  &_visa {
+    $ratio: 0.655;
+    background-image: url("/payments/visa.png");
+    width: pxToRem($width);
+    height: pxToRem($width * $ratio);
+  }
+
+  &_qiwi {
+    $ratio: 0.451;
+    background-image: url("/payments/qiwi.png");
+    width: pxToRem($width);
+    height: pxToRem($width * $ratio);
+  }
+
+  &_mts {
+    $ratio: 0.655;
+    background-image: url("/payments/mts.png");
+    width: pxToRem($width);
+    height: pxToRem($width * $ratio);
+  }
+
+  &_alphabank {
+    $ratio: 0.655;
+    background-image: url("/payments/alphabank.png");
+    width: pxToRem($width);
+    height: pxToRem($width * $ratio);
+  }
+}

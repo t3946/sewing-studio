@@ -6,6 +6,7 @@ import { SSRProvider } from "react-bootstrap";
 import axios from "axios";
 import NextApp from "next/app";
 import Page from "@components/common/layout/page/Page";
+import Cookies from "js-cookie";
 
 function App({ Component, pageProps }) {
   return (
@@ -35,26 +36,6 @@ App.getInitialProps = async (appContext) => {
     cookie: `auth=${appContext.ctx.req?.cookies?.auth}`,
   };
 
-  const historyPrizes = await axios
-    .get(baseUrl + "/f-history/get")
-    .then((res) => {
-      return res.data.history;
-    });
-
-  const reviews = await axios.get(baseUrl + "/reviews/1").then((res) => {
-    return res.data.reviews;
-  });
-
-  const stock = await axios
-    .get(baseUrl + "/stock/get", {
-      withCredentials: true,
-      headers,
-    })
-    .then((res) => res.data.stock)
-    .catch(() => {
-      return [];
-    });
-
   const user = await axios
     .get(baseUrl + "/auth/info", {
       withCredentials: true,
@@ -67,24 +48,19 @@ App.getInitialProps = async (appContext) => {
       return null;
     });
 
+  const cookieString = Cookies.get("cart");
+  let cart;
+
+  if (cookieString) {
+    cart = JSON.parse(cookieString);
+  }
+
   appProps.pageProps.storeInitialData = {
     catalog,
-    categories: {
-      selectedCategory: catalog.length && catalog[0],
-    },
-    history: {
-      prizes: historyPrizes,
-    },
-    reviews: {
-      list: reviews,
-      skip: 1,
-    },
     user: {
       user,
     },
-    stock: {
-      stock,
-    },
+    cart,
   };
 
   return { ...appProps };
