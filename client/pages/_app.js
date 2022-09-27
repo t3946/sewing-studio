@@ -6,7 +6,6 @@ import { SSRProvider } from "react-bootstrap";
 import axios from "axios";
 import NextApp from "next/app";
 import Page from "@components/common/layout/page/Page";
-import Cookies from "js-cookie";
 
 function App({ Component, pageProps }) {
   return (
@@ -22,12 +21,6 @@ function App({ Component, pageProps }) {
 
 App.getInitialProps = async (appContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
-
-  if (typeof window !== "undefined") {
-    appProps.pageProps.storeInitialData = {};
-    return { ...appProps };
-  }
-
   const baseUrl = "http://localhost:3080/api";
   const catalog = await axios.get(baseUrl + "/category").then((res) => {
     return res.data.catalog;
@@ -48,7 +41,7 @@ App.getInitialProps = async (appContext) => {
       return null;
     });
 
-  const cookieString = Cookies.get("cart");
+  const cookieString = appContext.ctx.req?.cookies?.cart;
   let cart;
 
   if (cookieString) {

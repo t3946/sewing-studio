@@ -8,29 +8,41 @@ export interface IProps {
 }
 
 export const Catalog: React.FC<IProps> = function (props: IProps) {
-  const {className} = props;
+  const { className } = props;
   const products = [
-    {id: 1, image: "/images/pages/main/hoodies1.jpg", description: "Худи красный; футер трёхнитка, с начёсом", price: 3800},
-    {id: 2, image: "/images/pages/main/hoodies2.jpg", description: "Худи синий; футер трёхнитка, с начёсом", price: 3800},
-    {id: 3, image: "/images/pages/main/hoodies3.jpg", description: "Худи двухцветный; футер трёхнитка, с начёсом", price: 4500},
+    {
+      productId: 1,
+      image: "/images/pages/main/hoodies1.jpg",
+      description: "Худи красный; футер трёхнитка, с начёсом",
+      price: 3800,
+    },
+    {
+      productId: 2,
+      image: "/images/pages/main/hoodies2.jpg",
+      description: "Худи синий; футер трёхнитка, с начёсом",
+      price: 3800,
+    },
+    {
+      productId: 3,
+      image: "/images/pages/main/hoodies3.jpg",
+      description: "Худи двухцветный; футер трёхнитка, с начёсом",
+      price: 4500,
+    },
   ];
 
   const items = [];
 
   for (const product of products) {
-    items.push(<Item product={product} key={`product-${product.id}`}/>)
+    items.push(<Item product={product} key={`product-${product.productId}`} />);
   }
 
   return (
     <div className={cn(className)} id={"catalog"}>
-      <h2 className={"text-center header-2"}>
-        Магазин
-      </h2>
+      <h2 className={"text-center header-2"}>Магазин</h2>
 
-      <div className={cn(Style.catalog)}>
-        {items}
-      </div>
-    </div>);
+      <div className={cn(Style.catalog)}>{items}</div>
+    </div>
+  );
 };
 
 export default Catalog;

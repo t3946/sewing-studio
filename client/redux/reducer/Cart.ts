@@ -1,37 +1,39 @@
-import {AnyAction} from "redux";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   list: [],
 };
 
-const Cart = (
-  state: Record<any, any> = initialState,
-  action: AnyAction
-): Record<any, any> => {
-  switch (action.type) {
-    case "SET":
-      const newState = {...state};
-      const {productId, count} = action.data;
+function updateCookie(state: any) {
+  const cookie = require("js-cookie");
+  cookie.set("cart", JSON.stringify(state));
+}
 
-      newState.list = [...newState.list];
+const cartSlice = createSlice({
+  name: "popup",
+  initialState,
+  reducers: {
+    add(state: any, action: any) {
+      const { productId, count } = action.payload;
 
-      for (const product of newState.list) {
+      for (const product of state.list) {
         if (product.productId === productId) {
-          product.count = count;
-          return newState;
+          product.count += count;
+          updateCookie(state);
+          return;
         }
       }
 
-      newState.list.push({
+      state.list.push({
         productId,
         count,
       });
 
-      return newState;
+      updateCookie(state);
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
+export const { add } = cartSlice.actions;
 
-export default Cart;
+export default cartSlice.reducer;

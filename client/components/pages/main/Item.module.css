@@ -1,12 +1,12 @@
 .container {
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 8px;
-
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
 }
+.container:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .descriptionBlock {
   padding: 0 10px;
 }
@@ -18,3 +18,5 @@
 .cartCounter {
   white-space: nowrap;
 }
+
+/*# sourceMappingURL=Item.module.css.map */
