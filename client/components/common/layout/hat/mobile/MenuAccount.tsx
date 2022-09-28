@@ -3,7 +3,7 @@ import useSelector from "@hooks/useSelector";
 import StyleMenu from "@components/common/layout/hat/mobile/Menu.module.scss";
 import Link from "next/link";
 import cn from "classnames";
-import ChevronDown from "@components/common/icons/chevron-down/ChevronDown";
+import Cart from "@components/common/icons/chevron-down/ChevronDown";
 import Style from "@components/common/layout/hat/mobile/MenuAccount.module.scss";
 import { setUser } from "@redux/reducer/User";
 import { setState } from "@redux/reducer/Stock";
@@ -42,7 +42,7 @@ export const Menu: React.FC<IProps> = function (props) {
           )}
           onClick={onClick}
         >
-          <ChevronDown className={cn(StyleMenu.icon, "me-2")} />
+          <Cart className={cn(StyleMenu.icon, "me-2")} />
           {item.label}
         </a>
       </Link>
@@ -59,7 +59,7 @@ export const Menu: React.FC<IProps> = function (props) {
       }}
     >
       <span className={cn(StyleMenu.item, StyleMenu.item_micro, "d-block")}>
-        <ChevronDown className={cn(StyleMenu.icon, "me-2")} />
+        <Cart className={cn(StyleMenu.icon, "me-2")} />
         Выйти
       </span>
     </div>

@@ -2,7 +2,7 @@ import * as React from "react";
 import Style from "@components/common/layout/hat/UserPanel.module.scss";
 import useSelector from "@hooks/useSelector";
 import cn from "classnames";
-import ChevronDown from "@components/common/icons/chevron-down/ChevronDown";
+import Cart from "@components/common/icons/chevron-down/ChevronDown";
 import balanceToString from "@utils/balanceToString";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -60,7 +60,7 @@ export const UserPanel: React.FC<IProps> = function (props) {
       </div>
 
       {onToggle && (
-        <ChevronDown
+        <Cart
           className={cn("flex-shrink-0", Style.chevron, {
             [Style.chevron_open]: open,
           })}
