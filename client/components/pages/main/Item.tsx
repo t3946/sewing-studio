@@ -46,11 +46,13 @@ export const Item: React.FC<IProps> = function (props) {
       />
 
       <div className={cn("flex-grow-1", Style.descriptionBlock)}>
-        <div><b>{product.name}</b></div>
+        <div>
+          <b>{product.name}</b>
+        </div>
         <p>{product.description}</p>
       </div>
 
-      <div className={cn(Style.priceBlock, Style.priceBlock)}>
+      <div className={cn(Style.priceBlock, Style.priceBlock)} suppressHydrationWarning>
         цена: <b>{product.price} руб.</b>
         <br />
         <Button
@@ -61,7 +63,7 @@ export const Item: React.FC<IProps> = function (props) {
           Купить
         </Button>
         {count > 0 && (
-          <div suppressHydrationWarning>
+          <div>
             <span className={Style.cartCounter}>В корзине: {count} шт.</span>
             <br />
             <Button

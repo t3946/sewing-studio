@@ -1,7 +1,7 @@
 import * as React from "react";
 import Style from "@components/common/layout/hat/MenuDesktop.module.scss";
-import Nav from "react-bootstrap/Nav";
 import cn from "classnames";
+import Link from "next/link";
 
 export const MenuDesktop: React.FC = function () {
   const menu = [
@@ -26,9 +26,9 @@ export const MenuDesktop: React.FC = function () {
 
     items.push(
       <li className={Style.navItem} key={`menu-item-${i}`}>
-        <Nav.Link href={menuItem.link} className={Style.navLink}>
-          {menuItem.label}
-        </Nav.Link>
+        <Link href={menuItem.link}>
+          <a className={cn(Style.navLink, "link-unstyled")}>{menuItem.label}</a>
+        </Link>
       </li>
     );
   }
