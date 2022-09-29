@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
 import { add } from "@redux/reducer/Cart";
 import useSelector from "@hooks/useSelector";
+import Link from "next/link";
 
 export interface IProps {
   product: Record<any, any>;
@@ -50,13 +51,15 @@ export const Item: React.FC<IProps> = function (props) {
         >
           Купить
         </Button>
-
         {count > 0 && (
           <div suppressHydrationWarning>
             <span className={Style.cartCounter}>В корзине: {count} шт.</span>
-            <Button variant={"outline-primary"} className={"w-100"}>
-              Чекаут
-            </Button>
+            <br />
+            <Link href={"/checkout"}>
+              <a className={Style.checkoutLink}>
+                Оформить заказ
+              </a>
+            </Link>
           </div>
         )}
       </div>

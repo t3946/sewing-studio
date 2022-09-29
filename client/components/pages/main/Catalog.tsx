@@ -2,6 +2,7 @@ import * as React from "react";
 import cn from "classnames";
 import Style from "@components/pages/main/Catalog.module.scss";
 import Item from "@components/pages/main/Item";
+import useSelector from "@hooks/useSelector";
 
 export interface IProps {
   className?: any;
@@ -9,26 +10,7 @@ export interface IProps {
 
 export const Catalog: React.FC<IProps> = function (props: IProps) {
   const { className } = props;
-  const products = [
-    {
-      productId: 1,
-      image: "/images/pages/main/hoodies1.jpg",
-      description: "Худи красный; футер трёхнитка, с начёсом",
-      price: 3800,
-    },
-    {
-      productId: 2,
-      image: "/images/pages/main/hoodies2.jpg",
-      description: "Худи синий; футер трёхнитка, с начёсом",
-      price: 3800,
-    },
-    {
-      productId: 3,
-      image: "/images/pages/main/hoodies3.jpg",
-      description: "Худи двухцветный; футер трёхнитка, с начёсом",
-      price: 4500,
-    },
-  ];
+  const products = useSelector((state) => state.catalog.hoodies);
 
   const items = [];
 

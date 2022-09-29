@@ -4,7 +4,6 @@ import cn from "classnames";
 import { modalOpen } from "@redux/reducer/Popup";
 import { useDispatch } from "react-redux";
 import useSelector from "@hooks/useSelector";
-import UserPanel from "@components/common/layout/hat/UserPanel";
 import Link from "next/link";
 import MenuDesktop from "@components/common/layout/hat/MenuDesktop";
 import HatMobile from "@components/common/layout/hat/mobile/HatMobile";
@@ -40,7 +39,7 @@ export const Hat: React.FC = function () {
         >
           <div className="row m-lg-0">
             <div className={cn("col-auto", "d-flex", "align-items-center")}>
-              <Link href={"/main"}>
+              <Link href={"/"}>
                 <a>
                   <img
                     src={"/images/pages/main/logo.png"}
@@ -57,16 +56,20 @@ export const Hat: React.FC = function () {
 
             <div className={cn(["col-auto", "d-flex", "align-items-center"])}>
               <div className={Style.iconCart}>
-                <IconCart />
-                {totalItemsInCart > 0 && (
-                  <Badge
-                    pill
-                    bg="danger"
-                    className={cn(Style.iconCart_badge, Style.iconCart__badge)}
-                  >
-                    {totalItemsInCart}
-                  </Badge>
-                )}
+                <Link href={"/checkout"}>
+                  <a className={"link-dark"}>
+                    <IconCart />
+                    {totalItemsInCart > 0 && (
+                      <Badge
+                        pill
+                        bg="danger"
+                        className={cn(Style.iconCart_badge, Style.iconCart__badge)}
+                      >
+                        {totalItemsInCart}
+                      </Badge>
+                    )}
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

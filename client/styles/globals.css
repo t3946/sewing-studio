@@ -70,8 +70,15 @@ ul {
   text-transform: none !important;
 }
 
+.header-1 {
+  font-size: 5rem;
+}
+
 .header-2 {
   font-size: 4rem;
+}
+.header-3 {
+  font-size: 3rem;
 }
 
 html, body {

@@ -22,9 +22,36 @@ function App({ Component, pageProps }) {
 App.getInitialProps = async (appContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
   const baseUrl = "http://localhost:3080/api";
-  const catalog = await axios.get(baseUrl + "/category").then((res) => {
-    return res.data.catalog;
-  });
+  // fake catalog
+  // const catalog = await axios.get(baseUrl + "/category").then((res) => {
+  //   return res.data.catalog;
+  // });
+  const catalog = {
+    hoodies: [
+      {
+        productId: 1,
+        image: "/images/pages/main/hoodies1.jpg",
+        name: "Худи красный",
+        description: "футер трёхнитка, с начёсом",
+        price: 3800,
+      },
+      {
+        productId: 2,
+        image: "/images/pages/main/hoodies2.jpg",
+        name: "Худи синий",
+        description: "футер трёхнитка, с начёсом",
+        price: 3800,
+      },
+      {
+        productId: 3,
+        image: "/images/pages/main/hoodies3.jpg",
+        name: "Худи двухцветный",
+        description: "футер трёхнитка, с начёсом",
+        price: 4500,
+      },
+    ],
+  };
+
   const headers = {
     cookie: `auth=${appContext.ctx.req?.cookies?.auth}`,
   };

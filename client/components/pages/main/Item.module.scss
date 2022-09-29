@@ -18,3 +18,10 @@
 .cartCounter {
   white-space: nowrap;
 }
+
+.checkoutLink {
+  color: #0d6efd;
+  &:hover {
+    text-decoration: underline;
+  }
+}
