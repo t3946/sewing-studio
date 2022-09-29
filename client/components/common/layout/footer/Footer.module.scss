@@ -2,13 +2,12 @@
 
 .footer {
   background: #000000;
-  color: #ffffff;
+  color: #aeaeae;
   min-height: 100px;
   padding: 20px;
 }
 
 .contactIcon {
-  color: #ffffff;
   width: pxToRem(20);
 }
 
@@ -20,8 +19,11 @@
 
 
 .socialIcon {
-  color: #ffffff;
+  color: #aeaeae;
   width: pxToRem(30);
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 .secondaryText {
@@ -30,4 +32,22 @@
 
 .strong {
   color: #6e3e3e;
+}
+
+
+.ofertaLink {
+  color: #aeaeae;
+  text-decoration: none;
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.ofertaIcon {
+  width: 20px;
+}
+
+.phoneSupportIcon {
+  width: 16px;
 }

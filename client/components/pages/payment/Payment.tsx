@@ -16,7 +16,21 @@ export const Payment: React.FC = function () {
 
   return (
     <div className={"container-lg"}>
-      <h1 className={"header-3 text-center mt-3 mb-4"}>Оплата заказа #{orderNumber}</h1>
+      <h1 className={"header-3 text-center mt-3 mb-4"}>
+        Оплата заказа #{orderNumber}
+      </h1>
+
+      <Alert variant={"secondary"}>
+        <Alert.Heading>Договор оферты</Alert.Heading>
+        <p>Нажимая кнопку "Оплатить" вы соглашаетесь с договором оферты.</p>
+        <p>
+          Ознакомиться с договорм можно по следующей ссылке{" "}
+          <a href="/oferta.rtf" target={"_blank"}>
+            скачать
+          </a>
+          .
+        </p>
+      </Alert>
 
       <Alert variant={"warning"}>
         <Alert.Heading>Проверьте контактные данные!</Alert.Heading>

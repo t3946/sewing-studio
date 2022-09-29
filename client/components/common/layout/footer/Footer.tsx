@@ -8,6 +8,7 @@ import IconVk from "@components/common/icons/vk/Vk";
 import IconTelegram from "@components/common/icons/telegram/Telegram";
 import Payments from "@components/common/layout/footer/Payments";
 import { useRouter } from "next/router";
+import FileWord from "@components/common/icons/file-word/duotone/FileWord";
 
 export const Footer: React.FC = function () {
   const router = useRouter();
@@ -32,12 +33,12 @@ export const Footer: React.FC = function () {
                 </a>
 
                 <a
-                  href={"tel:+7 (958) 665-52-87"}
+                  href={"tel:8 (958) 665-52-87"}
                   target={"_blank"}
                   className={cn(Style.contactLink, "link-unstyled")}
                 >
                   <IconPhone className={cn(Style.contactIcon)} />
-                  <span className={"ms-2"}>+7 (958) 665-52-87</span>
+                  <span className={"ms-2"}>8 (958) 665-52-87</span>
                 </a>
               </div>
 
@@ -61,8 +62,8 @@ export const Footer: React.FC = function () {
               </div>
             </div>
 
-            <div className={cn("col-4", Style.secondaryText)}>
-              <div className="d-flex">
+            <div className={cn("col-4")}>
+              <div className={cn("d-flex", Style.secondaryText)}>
                 <div className={cn("text-end", "me-2")}>
                   <span>ИП:</span>
                   <br />
@@ -78,8 +79,26 @@ export const Footer: React.FC = function () {
                 </div>
               </div>
 
+              <div className={"my-3"}>
+                <a
+                  href={"/oferta.rtf"}
+                  target={"_blank"}
+                  className={cn(Style.ofertaLink)}
+                >
+                  <div className={"d-flex align-items-center"}>
+                    <FileWord className={Style.ofertaIcon} />
+                    <span className={"ms-2"}>Договор оферты</span>
+                  </div>
+                </a>
+              </div>
+
               <div className={cn(Style.strong, "mt-2")}>
-                Телефон поддержки: 8 912 723 93 98
+                <span>Техподдержка:</span>
+                <br />
+                <div className={cn("d-flex", "align-items-center")}>
+                  <IconPhone className={cn(Style.phoneSupportIcon, "me-2")} />
+                  <span>8 912 723 93 98</span>
+                </div>
               </div>
             </div>
           </div>
