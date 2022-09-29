@@ -1,7 +1,6 @@
 import * as React from "react";
 import Select from "@components/common/ui/select/Select";
 import useSelector from "@hooks/useSelector";
-import Styles from "@components/pages/main/SelectCategory.module.scss";
 import { useRouter } from "next/router";
 
 interface IProps {
@@ -36,7 +35,7 @@ export const SelectCategory: React.FC<IProps> = function (props) {
       }}
       instanceId={"select-category"}
       classes={{
-        select: [Styles.select, className],
+        select: [className],
       }}
       clearable={false}
     />
