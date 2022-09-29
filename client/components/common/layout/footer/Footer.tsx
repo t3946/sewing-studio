@@ -7,14 +7,14 @@ import IconPhone from "@components/common/icons/phone/Phone";
 import IconVk from "@components/common/icons/vk/Vk";
 import IconTelegram from "@components/common/icons/telegram/Telegram";
 import Payments from "@components/common/layout/footer/Payments";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 export const Footer: React.FC = function () {
   const router = useRouter();
 
   return (
     <div className={cn("mt-5", "d-flex", "flex-column")}>
-      {router.route === "/" && <MainPageMap/>}
+      {router.route === "/" && <MainPageMap />}
 
       <div className={cn(Style.footer)}>
         <div className="container-lg">
@@ -61,10 +61,30 @@ export const Footer: React.FC = function () {
               </div>
             </div>
 
-            <div className="col-4"></div>
+            <div className={cn("col-4", Style.secondaryText)}>
+              <div className="d-flex">
+                <div className={cn("text-end", "me-2")}>
+                  <span>ИП:</span>
+                  <br />
+                  <span>ИНН:</span>
+                  <br />
+                  <span>ОГРНИП:</span>
+                </div>
+
+                <div>
+                  <span>Лимонов Владислав Николаевич</span> <br />
+                  <span>434587939091</span> <br />
+                  <span>322435000009905</span>
+                </div>
+              </div>
+
+              <div className={cn(Style.strong, "mt-2")}>
+                Телефон поддержки: 8 912 723 93 98
+              </div>
+            </div>
           </div>
 
-          <div className={cn("text-center", Style.copyright)}>
+          <div className={cn("text-center", Style.secondaryText)}>
             © 2022 Студия ТМ. Все права защищены.
           </div>
         </div>
