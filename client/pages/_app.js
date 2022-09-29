@@ -21,11 +21,6 @@ function App({ Component, pageProps }) {
 
 App.getInitialProps = async (appContext) => {
   const appProps = await NextApp.getInitialProps(appContext);
-  const baseUrl = "http://localhost:3080/api";
-  // fake catalog
-  // const catalog = await axios.get(baseUrl + "/category").then((res) => {
-  //   return res.data.catalog;
-  // });
   const catalog = {
     hoodies: [
       {
@@ -52,22 +47,6 @@ App.getInitialProps = async (appContext) => {
     ],
   };
 
-  const headers = {
-    cookie: `auth=${appContext.ctx.req?.cookies?.auth}`,
-  };
-
-  const user = await axios
-    .get(baseUrl + "/auth/info", {
-      withCredentials: true,
-      headers,
-    })
-    .then((res) => {
-      return res.data.user;
-    })
-    .catch((err) => {
-      return null;
-    });
-
   const cookieString = appContext.ctx.req?.cookies?.cart;
   let cart;
 
@@ -77,9 +56,6 @@ App.getInitialProps = async (appContext) => {
 
   appProps.pageProps.storeInitialData = {
     catalog,
-    user: {
-      user,
-    },
     cart,
   };
 
