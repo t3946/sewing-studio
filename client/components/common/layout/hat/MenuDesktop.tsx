@@ -1,20 +1,20 @@
 import * as React from "react";
 import Style from "@components/common/layout/hat/MenuDesktop.module.scss";
-import Nav from 'react-bootstrap/Nav';
+import Nav from "react-bootstrap/Nav";
 import cn from "classnames";
 
 export const MenuDesktop: React.FC = function () {
   const menu = [
     {
-      link: "#catalog",
+      link: "/#catalog",
       label: "Магазин",
     },
     {
-      link: "#studio",
+      link: "/#studio",
       label: "Ателье",
     },
     {
-      link: "#contacts",
+      link: "/#contacts",
       label: "Контакты",
     },
   ];
@@ -26,12 +26,20 @@ export const MenuDesktop: React.FC = function () {
 
     items.push(
       <li className={Style.navItem} key={`menu-item-${i}`}>
-        <Nav.Link href={menuItem.link} className={Style.navLink}>{menuItem.label}</Nav.Link>
+        <Nav.Link href={menuItem.link} className={Style.navLink}>
+          {menuItem.label}
+        </Nav.Link>
       </li>
     );
   }
 
-  return <ul className={cn("list-unstyled", "m-0", "d-none", "d-xl-flex", Style.list)}>{items}</ul>;
+  return (
+    <ul
+      className={cn("list-unstyled", "m-0", "d-none", "d-xl-flex", Style.list)}
+    >
+      {items}
+    </ul>
+  );
 };
 
 export default MenuDesktop;

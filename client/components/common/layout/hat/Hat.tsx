@@ -56,20 +56,30 @@ export const Hat: React.FC = function () {
 
             <div className={cn(["col-auto", "d-flex", "align-items-center"])}>
               <div className={Style.iconCart}>
-                <Link href={"/order/checkout"}>
-                  <a className={"link-dark"}>
-                    <IconCart />
-                    {totalItemsInCart > 0 && (
+                {totalItemsInCart > 0 && (
+                  <Link href={"/order/checkout"}>
+                    <a className={"link-dark"}>
+                      <IconCart
+                        className={{ [Style.cartDisabled]: !totalItemsInCart }}
+                      />
+
                       <Badge
                         pill
                         bg="danger"
-                        className={cn(Style.iconCart_badge, Style.iconCart__badge)}
+                        className={cn(
+                          Style.iconCart_badge,
+                          Style.iconCart__badge
+                        )}
                       >
                         {totalItemsInCart}
                       </Badge>
-                    )}
-                  </a>
-                </Link>
+                    </a>
+                  </Link>
+                )}
+
+                {!totalItemsInCart && (
+                  <IconCart className={Style.cartDisabled} />
+                )}
               </div>
             </div>
           </div>

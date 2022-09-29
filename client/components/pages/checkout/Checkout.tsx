@@ -5,9 +5,15 @@ import Style from "@components/pages/checkout/Form.module.scss";
 import cn from "classnames";
 import Link from "next/link";
 import {useRouter} from "next/router";
+import useSelector from "@hooks/useSelector";
 
 export const Checkout: React.FC = function () {
   const router = useRouter();
+  const cart = useSelector((state) => state.cart.list);
+
+  if (!cart.length) {
+    router.back();
+  }
 
   function orderSubmitHandler () {
     router.push("/order/payment");
