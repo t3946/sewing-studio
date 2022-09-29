@@ -31,9 +31,22 @@ const cartSlice = createSlice({
 
       updateCookie(state);
     },
+
+    remove(state: any, action: any) {
+      const { productId } = action.payload;
+      const newList = [];
+
+      for (const product of state.list) {
+        if (product.productId !== productId) {
+          newList.push(product);
+        }
+      }
+
+      state.list = newList;
+    },
   },
 });
 
-export const { add } = cartSlice.actions;
+export const { add, remove } = cartSlice.actions;
 
 export default cartSlice.reducer;

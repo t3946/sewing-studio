@@ -7,22 +7,25 @@ import IconPhone from "@components/common/icons/phone/Phone";
 import IconVk from "@components/common/icons/vk/Vk";
 import IconTelegram from "@components/common/icons/telegram/Telegram";
 import Payments from "@components/common/layout/footer/Payments";
+import {useRouter} from "next/router";
 
 export const Footer: React.FC = function () {
+  const router = useRouter();
+
   return (
     <div className={cn("mt-5", "d-flex", "flex-column")}>
-      <MainPageMap />
+      {router.route === "/" && <MainPageMap/>}
 
       <div className={cn(Style.footer)}>
         <div className="container-lg">
           <div className="row">
-            <div className="col-4">
+            <div className="col-4" id={"contacts"}>
               <div>Контакты:</div>
               <div className={cn("d-flex", "flex-column", "mb-3")}>
                 <a
                   href={"mail:svialence@yandex.ru"}
                   target={"_blank"}
-                  className={cn(Style.contactLink, "mb-2")}
+                  className={cn(Style.contactLink, "mb-2", "link-unstyled")}
                 >
                   <IconEmail className={cn(Style.contactIcon)} />
                   <span className={"ms-2"}>svialence@yandex.ru</span>
@@ -31,7 +34,7 @@ export const Footer: React.FC = function () {
                 <a
                   href={"tel:+7 (958) 665-52-87"}
                   target={"_blank"}
-                  className={Style.contactLink}
+                  className={cn(Style.contactLink, "link-unstyled")}
                 >
                   <IconPhone className={cn(Style.contactIcon)} />
                   <span className={"ms-2"}>+7 (958) 665-52-87</span>

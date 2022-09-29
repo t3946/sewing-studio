@@ -56,7 +56,7 @@ export const Hat: React.FC = function () {
 
             <div className={cn(["col-auto", "d-flex", "align-items-center"])}>
               <div className={Style.iconCart}>
-                <Link href={"/checkout"}>
+                <Link href={"/order/checkout"}>
                   <a className={"link-dark"}>
                     <IconCart />
                     {totalItemsInCart > 0 && (

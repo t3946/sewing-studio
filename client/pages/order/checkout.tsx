@@ -6,7 +6,7 @@ export default function Page(props: any) {
   return (
     <>
       <Head>
-        <title>Оформить заказ</title>
+        <title>Оформление заказа</title>
       </Head>
 
       <Checkout />

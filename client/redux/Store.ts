@@ -11,6 +11,7 @@ import User from "@redux/reducer/User";
 import Menu from "@redux/reducer/Menu";
 import Stock from "@redux/reducer/Stock";
 import Cart from "@redux/reducer/Cart";
+import Order from "@redux/reducer/Order";
 import { configureStore } from "@reduxjs/toolkit";
 
 const getStore = (function () {
@@ -32,6 +33,7 @@ const getStore = (function () {
           menu: Menu,
           accountMenu: Menu,
           cart: Cart,
+          order: Order,
         },
         preloadedState,
         enhancers: [applyMiddleware(sagaMiddleware)],

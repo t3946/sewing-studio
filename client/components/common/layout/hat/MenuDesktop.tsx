@@ -14,10 +14,6 @@ export const MenuDesktop: React.FC = function () {
       label: "Ателье",
     },
     {
-      link: "#reviews",
-      label: "Отзывы",
-    },
-    {
       link: "#contacts",
       label: "Контакты",
     },

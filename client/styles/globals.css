@@ -14,13 +14,13 @@ body {
   color: #000000;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
+}
+
+.link-unstyled {
+  color: inherit;
+  text-decoration: none;
 }
 
 .font-calibri {

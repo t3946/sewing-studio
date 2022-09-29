@@ -3,7 +3,7 @@ import cn from "classnames";
 import Style from "@components/pages/main/Item.module.scss";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
-import { add } from "@redux/reducer/Cart";
+import { add, remove } from "@redux/reducer/Cart";
 import useSelector from "@hooks/useSelector";
 import Link from "next/link";
 
@@ -23,6 +23,14 @@ export const Item: React.FC<IProps> = function (props) {
       add({
         productId: product.productId,
         count: 1,
+      })
+    );
+  }
+
+  function removeFromCart() {
+    dispatch(
+      remove({
+        productId: product.productId,
       })
     );
   }
@@ -55,10 +63,16 @@ export const Item: React.FC<IProps> = function (props) {
           <div suppressHydrationWarning>
             <span className={Style.cartCounter}>В корзине: {count} шт.</span>
             <br />
-            <Link href={"/checkout"}>
-              <a className={Style.checkoutLink}>
-                Оформить заказ
-              </a>
+            <Button
+              variant={"outline-danger"}
+              className={"w-100"}
+              onClick={removeFromCart}
+            >
+              Убрать
+            </Button>
+            <br />
+            <Link href={"/order/checkout"}>
+              <a className={Style.checkoutLink}>Оформить заказ</a>
             </Link>
           </div>
         )}

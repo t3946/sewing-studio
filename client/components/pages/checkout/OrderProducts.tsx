@@ -12,7 +12,11 @@ export const OrderProducts: React.FC = function () {
     for (const catalogElement of catalog) {
       if (cartElement.productId === catalogElement.productId) {
         productInCart.push(
-          <OrderProduct product={catalogElement} count={cartElement.count} />
+          <OrderProduct
+            product={catalogElement}
+            count={cartElement.count}
+            key={`product-${catalogElement.productId}`}
+          />
         );
       }
     }
