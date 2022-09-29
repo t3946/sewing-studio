@@ -2,9 +2,9 @@
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 8px;
 
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  &:first-child {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 8px;
   }
 }
 .descriptionBlock {

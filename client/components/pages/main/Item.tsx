@@ -46,7 +46,8 @@ export const Item: React.FC<IProps> = function (props) {
       />
 
       <div className={cn("flex-grow-1", Style.descriptionBlock)}>
-        {product.description}
+        <div><b>{product.name}</b></div>
+        <p>{product.description}</p>
       </div>
 
       <div className={cn(Style.priceBlock, Style.priceBlock)}>
