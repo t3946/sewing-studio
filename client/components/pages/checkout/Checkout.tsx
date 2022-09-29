@@ -1,6 +1,6 @@
 import * as React from "react";
 import OrderProducts from "@components/pages/checkout/OrderProducts";
-import Form from "C:/OpenServer/domains/localhost/studiatm/client/components/pages/checkout/Form";
+import Form from "@components/pages/checkout/Form";
 import Style from "@components/pages/checkout/Form.module.scss";
 import cn from "classnames";
 import Link from "next/link";
